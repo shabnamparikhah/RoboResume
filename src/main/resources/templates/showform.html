@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <head>
+        <meta charset="UTF-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
+        <title>Show Resume</title>
+</head>
+<body>
+<div class="container">
+
+<table width="700px" >
+    <a href="/add" class="header" >Go Back</a><br/>
+    <tr >
+        <td ><h3>Personal Information</h3></td></tr>
+        <tr   th:each="resume : ${resumes}" >
+       <td>Name :</td>
+            <td th:text="${resume.name}" width="200px"></td>
+            </tr>
+
+        <tr  th:each="resume : ${resumes}">
+            <td>Email :</td>
+        <td th:text="${resume.emailaddress}" width="200px"></td>
+
+           </tr>
+    <tr>
+        <td colspan="2">
+            <hr />
+        </td>
+    </tr>
+
+    <tr>
+        <td><h3>Education</h3></td></tr>
+    <tr  th:each="resume : ${resumes}">
+
+        <td  width="200px" >  <ul>
+            <li th:text="${resume.educationalachievements}"></li>
+        </ul></td>
+        <td width="100px"></td>
+
+    </tr>
+    <tr>
+        <td colspan="2">
+            <hr />
+        </td>
+    </tr>
+    <tr><td><h3>Work Experiences</h3></td></tr>
+
+
+    <tr  th:each="resume : ${resumes}" >
+        <td  width="200px">  <ul>
+            <li th:text="${resume.workexperiences}"></li>
+        </ul></td>
+
+        <td width="100px"></td>
+
+
+    </tr>
+    <tr>
+        <td colspan="2">
+            <hr />
+        </td>
+    </tr>
+    <tr>
+        <td><h3>Skills</h3></td></tr>
+    <tr  th:each="resume : ${resumes}" >
+        <td width="200px">  <ul>
+            <li th:text="${resume.skills}" > </li>
+        </ul></td>
+
+        <td width="100px"> </td>
+
+    </tr>
+
+</table>
+
+
+
+</div>
+
+</body>
+</html>
